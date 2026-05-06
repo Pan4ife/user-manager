@@ -2,7 +2,6 @@ package io.slava.usermanager.service;
 
 import io.slava.usermanager.model.User;
 import io.slava.usermanager.repository.UserRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
@@ -29,8 +28,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getById(Long id) {
-        return userRepository.getById(id)
+    public User findById(Long id) {
+        return userRepository.findById(id)
                 .orElse(null);
     }
 
